@@ -36,6 +36,9 @@
         }
     </style>
     <link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+    <script src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
+        data-token="fc872e76-d336-4d26-a2c3-0be7f0d458c7">
+        </script>
 
     <style id="wp-emoji-styles-inline-css">
         img.wp-smiley,
@@ -1387,7 +1390,7 @@
                                         }
 
                                         .productBuy-mobile {
-                                            max-width: 500px;
+                                            max-width: 800px;
                                             margin: 0 auto;
                                             padding: 15px;
                                             font-weight: 900;
@@ -1657,74 +1660,67 @@
 
                                     <div class="productBuy-mobile">
                                         <div class="titleDiv">
-                                            <h2>Garanta sua vaga</h2>
+                                            <h2>ESCOLHA SEU KIT</h2>
                                             <hr>
                                         </div>
 
+                                        <div class="product-offers-container"
+                                            style="display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; justify-content: center;">
 
-                                        <div class="price-section">
-                                            <p class="price-today">Preço hoje:</p>
-                                            <p class="lead">
-                                                <small>Apenas</small>
-                                                <span id="kit-valor-parcela">R$29,90</span><br>
-                                            </p>
+                                            <!-- Offer 1 -->
+                                            <div class="product-offer"
+                                                style="flex: 1; min-width: 280px; border: 1px solid #e0e0e0; border-radius: 15px; padding: 20px; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;">
+                                                <img src="images/produto_2qtd.jpeg" alt="Pegue 1 leve outro"
+                                                    style="width: 100%; max-width: 250px; height: auto; margin: 0 auto 15px;">
+
+                                                <a href="https://ambienteseguro.org.ua/c/d2347e90bd"
+                                                    class="btn_carrinho-mobile offer-btn">
+                                                    <div class="btnBuyText" style="font-size: 18px;">COMPRAR AGORA</div>
+                                                </a>
+                                            </div>
+
+                                            <!-- Offer 2 -->
+                                            <div class="product-offer"
+                                                style="flex: 1; min-width: 280px; border: 2px solid #fc1000; border-radius: 15px; padding: 20px; background: #fffbfb; position: relative; text-align: center; box-shadow: 0 4px 15px rgba(252, 16, 0, 0.15);">
+                                                <div
+                                                    style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #fc1000; color: white; padding: 5px 20px; border-radius: 20px; font-weight: 800; font-size: 12px; text-transform: uppercase;">
+                                                    Mais Popular</div>
+
+                                                <img src="images/produto_3qtd.jpeg" alt="Pegue 2 ganhe 1"
+                                                    style="width: 100%; max-width: 250px; height: auto; margin: 0 auto 15px;">
+
+                                                <a href="https://ambienteseguro.org.ua/c/d2347e90bd"
+                                                    class="btn_carrinho-mobile offer-btn"
+                                                    style="background-color: #fc1000;">
+                                                    <div class="btnBuyText" style="font-size: 18px;">COMPRAR AGORA</div>
+                                                </a>
+                                            </div>
+
                                         </div>
-
-                                        <a href="https://ambienteseguro.org.ua/c/d2347e90bd" id="btn_carrinho"
-                                            class="btn_carrinho-mobile">
-                                            <div class="btnBuyText">INSCREVA-SE AGORA</div>
-                                            <span class="arrow-icon">→</span>
-                                        </a>
                                     </div>
 
                                     <div class="price-section">
                                         <img style="width:65%;" src="images/juIebULr6dGE.png" alt="Feature Icon">
                                     </div>
 
-
                                     <script type="rocketlazyloadscript">
-        document.addEventListener('DOMContentLoaded', function() {
-            const potes = document.querySelectorAll('.nav-item');
-            const productPreview = document.getElementById('product-preview');
-            const btnCarrinho = document.getElementById('btn_carrinho');
-            const kitRendimento = document.getElementById('kit-rendimento');
-            const kitValorParcela = document.getElementById('kit-valor-parcela');
-            const kitPrecoAvista = document.getElementById('kit-preco-avista');
-            const economize = document.getElementById('economize');
-            
-            const parametros = window.location.search;
-
-            function updateProduct(pote) {
-                potes.forEach(p => p.classList.remove('active'));
-                pote.classList.add('active');
-
-                productPreview.src = pote.getAttribute('data-image');
-                btnCarrinho.href = pote.getAttribute('data-url') + parametros;
-                kitRendimento.textContent = pote.getAttribute('data-quantity') + ' Dias de Tratamento';
-                kitValorParcela.textContent = 'R$ ' + pote.getAttribute('data-parcela');
-                kitPrecoAvista.textContent = 'ou R$ ' + pote.getAttribute('data-avista') + ' à vista';
-
-                const economiaValue = pote.getAttribute('data-economia');
-                if (economiaValue) {
-                    economize.textContent = 'Economize R$ ' + economiaValue;
-                    economize.style.visibility = 'visible';
-                } else {
-                    economize.style.visibility = 'hidden';
-                }
-            }
-
-            potes.forEach(pote => {
-                pote.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    updateProduct(this);
-                });
-            });
-
-            const potePadrao = document.getElementById('pote-3');
-            updateProduct(potePadrao);
-        });
-    </script>
-
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const parametros = window.location.search;
+                                            const buttons = document.querySelectorAll('.offer-btn');
+                                            
+                                            buttons.forEach(btn => {
+                                                let currentHref = btn.getAttribute('href');
+                                                if (currentHref && parametros) {
+                                                     // Check if href already has ?
+                                                     if (currentHref.indexOf('?') > -1) {
+                                                         btn.setAttribute('href', currentHref + '&' + parametros.substring(1));
+                                                     } else {
+                                                         btn.setAttribute('href', currentHref + parametros);
+                                                     }
+                                                }
+                                            });
+                                        });
+                                    </script>
                                 </div>
                             </section>
                         </div>
